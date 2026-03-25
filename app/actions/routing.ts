@@ -6,6 +6,7 @@ const PRIORITY_WEIGHTS: Record<Priority, { fee: number; speed: number; reliabili
   cheapest: { fee: 0.70, speed: 0.10, reliability: 0.20 },
   fastest:  { fee: 0.20, speed: 0.60, reliability: 0.20 },
   balanced: { fee: 0.50, speed: 0.20, reliability: 0.30 },
+  safest:   { fee: 0.10, speed: 0.10, reliability: 0.80 },
 }
 
 const ROUTE_CONFIG: Record<
