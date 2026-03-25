@@ -1,4 +1,4 @@
-export type Priority = 'cheapest' | 'fastest' | 'balanced'
+export type Priority = 'cheapest' | 'fastest' | 'safest'
 
 export type RouteType = 'bank' | 'card_rail' | 'wallet' | 'crypto'
 
