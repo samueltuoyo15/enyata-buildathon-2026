@@ -58,7 +58,7 @@ function noise(range: number): number {
   return Math.floor(Math.random() * range * 2) - range
 }
 
-export async function fetchFxRate(from = 'NGN', to = 'GHS'): Promise<number> {
+export async function fetchFxRate(from: CurrencyCode = 'NGN', to: CurrencyCode = 'GHS'): Promise<number> {
   try {
     const res = await fetch(
       `https://v6.exchangerate-api.com/v6/${process.env.EXCHANGE_RATE_API_KEY}/pair/${from}/${to}`,
@@ -74,13 +74,13 @@ export async function fetchFxRate(from = 'NGN', to = 'GHS'): Promise<number> {
 interface RouteParams {
   amount: number
   priority: Priority
-  fromCurrency?: string
-  toCurrency?: string
+  fromCountry: CurrencyCode
+  toCountry: CurrencyCode
 }
 
 export async function generateRoutes(params: RouteParams): Promise<Route[]> {
-  const { amount, fromCurrency = 'NGN', toCurrency = 'GHS' } = params
-  const fxRate = await fetchFxRate(fromCurrency, toCurrency)
+  const { amount, fromCountry, toCountry } = params
+  const fxRate = await fetchFxRate(fromCountry, toCountry)
 
   return (Object.keys(ROUTE_CONFIG) as RouteType[]).map((type) => {
     const config = ROUTE_CONFIG[type]

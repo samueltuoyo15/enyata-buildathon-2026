@@ -4,6 +4,8 @@ export type RouteType = 'bank' | 'card_rail' | 'wallet' | 'crypto'
 
 export type TransferStatus = 'pending' | 'processing' | 'completed' | 'failed'
 
+export type CurrencyCode = 'NGN' | 'USD' | 'GHS' | 'KES' | 'ZAR' | 'GBP' | 'EUR'
+
 export interface Route {
   type: RouteType
   label: string
