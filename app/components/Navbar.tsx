@@ -121,8 +121,8 @@ export default function Navbar({ profile }: NavbarProps) {
        {isUserLoggedIn ? (
         <>
          {[
-          "overview",
-          "engine",
+          "dashboard",
+          "dashboard/engine",
           "history",
           "cards",
           "identity",
@@ -131,14 +131,14 @@ export default function Navbar({ profile }: NavbarProps) {
           <motion.button
            key={tab}
            onClick={() => {
-            router.push(`/${tab}`);
+            router.push(`/app/${tab}`);
             closeMenu();
            }}
            className="capitalize text-left"
            whileHover={{ x: 6 }}
            whileTap={{ scale: 0.95 }}
           >
-           {tab}
+           {tab === "dashboard/engine" ? "engine" : tab}
           </motion.button>
          ))}
 
